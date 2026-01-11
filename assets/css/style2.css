@@ -1,0 +1,302 @@
+/* Computer Engineering Website - Consolidated Stylesheet */
+/* Reset and Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+}
+
+/* Skip to Content Link for Accessibility */
+.skip-to-content {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: #003366;
+  color: white;
+  padding: 8px;
+  text-decoration: none;
+  z-index: 100;
+}
+
+.skip-to-content:focus {
+  top: 0;
+}
+
+/* Navigation Styles */
+nav {
+  background-color: #003366;
+  padding: 10px;
+}
+
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+nav ul li {
+  margin-right: 20px;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+nav ul li a:hover,
+nav ul li a:focus {
+  text-decoration: underline;
+}
+
+/* Header Image Container */
+.header-image {
+  position: relative;
+  width: 100%;
+  text-align: center;
+  color: white;
+  overflow: hidden;
+}
+
+.header-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.header-image h1 {
+  position: absolute;
+  top: 6%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 30px;
+  background-color: rgba(0,0,0,0);
+  padding: 10px 20px;
+  border-radius: 5px;
+}
+
+.credit {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  font-size: 16px;
+  background-color: rgba(0,0,0,0);
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+/* Main Content Sections */
+section {
+  margin: 40px;
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+}
+
+.description,
+.education,
+.importance,
+.tasks,
+.cs-role,
+.comparison,
+.jobs,
+.salary {
+  margin: 40px;
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+}
+
+/* Headings */
+h1 {
+  color: #003366;
+  font-size: 2em;
+  margin-bottom: 0.5em;
+}
+
+h2 {
+  color: #003366;
+  margin-bottom: 0.75em;
+  margin-top: 1em;
+}
+
+/* Paragraphs */
+p {
+  font-size: 16px;
+  color: #333;
+  margin-bottom: 1em;
+}
+
+/* Lists */
+ul {
+  list-style-type: square;
+  margin-left: 20px;
+  margin-bottom: 1em;
+}
+
+ul li {
+  margin-bottom: 0.5em;
+}
+
+/* Tables */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+}
+
+th {
+  background-color: #f2f2f2;
+  text-align: left;
+  font-weight: bold;
+  color: #003366;
+}
+
+td, th {
+  padding: 12px;
+  border: 1px solid #ccc;
+}
+
+tbody tr:hover {
+  background-color: #f9f9f9;
+}
+
+/* Links */
+a {
+  color: #003366;
+  text-decoration: none;
+}
+
+a:hover,
+a:focus {
+  text-decoration: underline;
+}
+
+/* Images */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  nav ul {
+    flex-direction: column;
+  }
+  
+  nav ul li {
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+  
+  section,
+  .description,
+  .education,
+  .importance,
+  .tasks,
+  .cs-role,
+  .comparison,
+  .jobs,
+  .salary {
+    margin: 20px;
+  }
+  
+  .header-image h1 {
+    font-size: 20px;
+    padding: 5px 10px;
+  }
+  
+  table {
+    font-size: 14px;
+  }
+  
+  td, th {
+    padding: 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .header-image h1 {
+    font-size: 16px;
+  }
+  
+  section,
+  .description,
+  .education,
+  .importance,
+  .tasks,
+  .cs-role,
+  .comparison,
+  .jobs,
+  .salary {
+    margin: 10px;
+  }
+  
+  table {
+    font-size: 12px;
+  }
+  
+  td, th {
+    padding: 6px;
+  }
+}
+
+/* Accessibility Enhancements */
+:focus {
+  outline: 2px solid #003366;
+  outline-offset: 2px;
+}
+
+/* High Contrast Mode Support */
+@media (prefers-contrast: high) {
+  body {
+    background: white;
+    color: black;
+  }
+  
+  a {
+    text-decoration: underline;
+  }
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Print Styles */
+@media print {
+  nav {
+    display: none;
+  }
+  
+  .skip-to-content {
+    display: none;
+  }
+  
+  body {
+    font-size: 12pt;
+    line-height: 1.5;
+  }
+  
+  h1, h2 {
+    page-break-after: avoid;
+  }
+  
+  table {
+    page-break-inside: avoid;
+  }
+}
