@@ -385,7 +385,73 @@ picture {
     color: white;
   }
 }
-
+*** Begin Patch
+*** Update File: assets/css/style2.css
+@@
+ :root {
+   --brand: #003366;
+   --muted: #f2f2f2;
+   --text: #222;
+   --gap: 40px;
+-  --nav-height: 64px; /* consistent nav height used across layout */
++  --nav-height: 64px; /* consistent nav height used across layout */
+ }
+ 
+ * { box-sizing: border-box; }
+ html, body {
+   margin: 0;
+   padding: 0;
+   font-family: Arial, sans-serif;
+   color: var(--text);
+   background: #fff;
+ }
+@@
+ nav {
+   position: sticky;
+   top: 0;
+   z-index: 1100;
+   height: var(--nav-height);
+   display: flex;
+   align-items: center;
+   background: var(--brand);
+   padding: 0 16px;
+ }
+@@
+ .header-image {
+   /* make room for the sticky nav + a bit of spacing */
+-  padding-top: calc(var(--nav-height) + 16px);
++  padding-top: calc(var(--nav-height) + 16px);
+ }
+@@
+ .header-image .title,
+ .title {
+   margin: 0;
+   position: absolute;
+-  top: 10%;
++  /* position title relative to nav height so header doesn't overlap */
++  top: calc(var(--nav-height) + 12px);
+   left: 50%;
+   transform: translateX(-50%);
+   font-size: 2rem;
+   background: rgba(0,0,0,0.35);
+   padding: 10px 16px;
+   border-radius: 6px;
+ }
+@@
+ @media (max-width: 700px) {
+   nav ul { flex-direction: column; gap: 8px; }
+-  .header-image .title, .title { font-size: 1.2rem; top: 8%; }
++  /* Lower nav height slightly and reduce title size on small screens */
++  :root { --nav-height: 56px; }
++
++  .header-image .title, .title {
++    font-size: 1.2rem;
++    top: calc(var(--nav-height) + 8px);
++    padding: 8px 12px;
++  }
+   table { font-size: 0.95rem; }
+ }
+*** End Patch
 /* Reduced Motion Support */
 @media (prefers-reduced-motion: reduce) {
   * {
