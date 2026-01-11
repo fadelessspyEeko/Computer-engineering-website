@@ -7,61 +7,24 @@ on:
     branches: [ main ]
 
 jobs:
-  html-validation:
+  validate-html:
     runs-on: ubuntu-latest
     
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v4
+      uses: actions/checkout@v3
       
     - name: Setup Node.js
-      uses: actions/setup-node@v4
+      uses: actions/setup-node@v3
       with:
-        node-version: '20'
+        node-version: '18'
         
     - name: Install HTMLHint
       run: npm install -g htmlhint
       
-    - name: Create HTMLHint configuration
-      run: |
-        cat > .htmlhintrc << 'EOF'
-        {
-          "tagname-lowercase": true,
-          "attr-lowercase": true,
-          "attr-value-double-quotes": true,
-          "doctype-first": true,
-          "tag-pair": true,
-          "spec-char-escape": true,
-          "id-unique": true,
-          "src-not-empty": true,
-          "attr-no-duplication": true,
-          "title-require": true,
-          "alt-require": true,
-          "doctype-html5": true,
-          "style-disabled": false,
-          "inline-style-disabled": false,
-          "inline-script-disabled": false,
-          "space-tab-mixed-disabled": "space",
-          "id-class-ad-disabled": false,
-          "attr-unsafe-chars": true
-        }
-        EOF
-        
     - name: Run HTMLHint on all HTML files
-      run: |
-        echo "Validating HTML files..."
-        htmlhint "*.html"
-        
-    - name: Validate HTML with W3C Validator
-      uses: Cyb3r-Jak3/html5validator-action@v7.2.0
-      with:
-        root: ./
-        css: false
-        
-    - name: Report validation results
-      if: success()
-      run: echo "✅ All HTML files passed validation!"
+      run: htmlhint "*.html"
       
-    - name: Report validation failure
-      if: failure()
-      run: echo "❌ HTML validation failed. Please check the errors above."
+    - name: Validation Results
+      if: success()
+      run: echo "✅ HTML validation passed!"

@@ -1,8 +1,10 @@
-/* Computer Engineering Website - Consolidated Stylesheet */
-/* Reset and Base Styles */
+/* ==========================================================================
+   Computer Engineering Website - Consolidated Stylesheet
+   ========================================================================== */
+
+/* Reset and Base Styles
+   ========================================================================== */
 * {
-  margin: 0;
-  padding: 0;
   box-sizing: border-box;
 }
 
@@ -11,11 +13,17 @@ html, body {
   padding: 0;
   height: 100%;
   width: 100%;
-  font-family: Arial, sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   line-height: 1.6;
+  color: #333;
 }
 
-/* Skip to Content Link for Accessibility */
+body {
+  font-size: 16px;
+}
+
+/* Skip to Content Link (Accessibility)
+   ========================================================================== */
 .skip-to-content {
   position: absolute;
   top: -40px;
@@ -31,7 +39,8 @@ html, body {
   top: 0;
 }
 
-/* Navigation Styles */
+/* Navigation
+   ========================================================================== */
 nav {
   background-color: #003366;
   padding: 10px;
@@ -47,20 +56,26 @@ nav ul {
 
 nav ul li {
   margin-right: 20px;
+  margin-bottom: 5px;
 }
 
 nav ul li a {
   color: white;
   text-decoration: none;
   font-weight: bold;
+  padding: 5px 10px;
+  display: block;
 }
 
 nav ul li a:hover,
 nav ul li a:focus {
   text-decoration: underline;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 3px;
 }
 
-/* Header Image Container */
+/* Header Image Section
+   ========================================================================== */
 .header-image {
   position: relative;
   width: 100%;
@@ -69,7 +84,8 @@ nav ul li a:focus {
   overflow: hidden;
 }
 
-.header-image img {
+.header-image img,
+.header-image picture {
   width: 100%;
   height: auto;
   display: block;
@@ -80,10 +96,12 @@ nav ul li a:focus {
   top: 6%;
   left: 50%;
   transform: translate(-50%, -50%);
-  font-size: 30px;
-  background-color: rgba(0,0,0,0);
+  font-size: clamp(1.5rem, 5vw, 3rem);
+  background-color: rgba(0, 0, 0, 0.5);
   padding: 10px 20px;
   border-radius: 5px;
+  margin: 0;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
 }
 
 .credit {
@@ -91,16 +109,35 @@ nav ul li a:focus {
   bottom: 20px;
   right: 20px;
   font-size: 16px;
-  background-color: rgba(0,0,0,0);
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white;
   padding: 5px 10px;
   border-radius: 5px;
 }
 
-/* Main Content Sections */
+.title {
+  margin: 0;
+  padding: 0;
+}
+
+/* Content Sections
+   ========================================================================== */
 section {
   margin: 40px;
   font-family: Arial, sans-serif;
+}
+
+section h2 {
+  color: #003366;
+  margin-top: 20px;
+  font-size: clamp(1.25rem, 3vw, 1.75rem);
+}
+
+section p {
+  font-size: 16px;
+  color: #333;
   line-height: 1.6;
+  margin-bottom: 1em;
 }
 
 .description,
@@ -108,195 +145,212 @@ section {
 .importance,
 .tasks,
 .cs-role,
-.comparison,
 .jobs,
-.salary {
+.salary,
+.comparison {
   margin: 40px;
   font-family: Arial, sans-serif;
   line-height: 1.6;
 }
 
-/* Headings */
-h1 {
-  color: #003366;
-  font-size: 2em;
-  margin-bottom: 0.5em;
-}
-
-h2 {
-  color: #003366;
-  margin-bottom: 0.75em;
-  margin-top: 1em;
-}
-
-/* Paragraphs */
-p {
-  font-size: 16px;
-  color: #333;
-  margin-bottom: 1em;
-}
-
-/* Lists */
+/* Lists
+   ========================================================================== */
 ul {
   list-style-type: square;
   margin-left: 20px;
-  margin-bottom: 1em;
+  padding-left: 20px;
 }
 
 ul li {
-  margin-bottom: 0.5em;
+  margin-bottom: 10px;
 }
 
-/* Tables */
+/* Tables
+   ========================================================================== */
 table {
   width: 100%;
   border-collapse: collapse;
   margin: 20px 0;
+  overflow-x: auto;
+  display: block;
+}
+
+@media (min-width: 768px) {
+  table {
+    display: table;
+  }
 }
 
 th {
   background-color: #f2f2f2;
   text-align: left;
   font-weight: bold;
-  color: #003366;
 }
 
 td, th {
   padding: 12px;
   border: 1px solid #ccc;
+  text-align: left;
 }
 
-tbody tr:hover {
+tbody tr:nth-child(even) {
   background-color: #f9f9f9;
 }
 
-/* Links */
+tbody tr:hover {
+  background-color: #f0f0f0;
+}
+
+/* Typography
+   ========================================================================== */
+strong {
+  font-weight: bold;
+  color: #003366;
+}
+
+em {
+  font-style: italic;
+}
+
 a {
   color: #003366;
-  text-decoration: none;
+  transition: color 0.3s ease;
 }
 
 a:hover,
 a:focus {
-  text-decoration: underline;
+  color: #0055aa;
+  outline: 2px solid #0055aa;
+  outline-offset: 2px;
 }
 
-/* Images */
+/* Responsive Images
+   ========================================================================== */
 img {
   max-width: 100%;
   height: auto;
 }
 
-/* Responsive Design */
+picture img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Responsive Design
+   ========================================================================== */
 @media (max-width: 768px) {
-  nav ul {
-    flex-direction: column;
-  }
-  
-  nav ul li {
-    margin-right: 0;
-    margin-bottom: 10px;
-  }
-  
   section,
   .description,
   .education,
   .importance,
   .tasks,
   .cs-role,
-  .comparison,
   .jobs,
-  .salary {
+  .salary,
+  .comparison {
     margin: 20px;
   }
-  
+
+  nav ul {
+    flex-direction: column;
+  }
+
+  nav ul li {
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+
   .header-image h1 {
-    font-size: 20px;
+    font-size: 1.5rem;
     padding: 5px 10px;
   }
-  
+
+  .credit {
+    font-size: 14px;
+    bottom: 10px;
+    right: 10px;
+  }
+
   table {
     font-size: 14px;
   }
-  
+
   td, th {
     padding: 8px;
   }
 }
 
 @media (max-width: 480px) {
+  body {
+    font-size: 14px;
+  }
+
+  section h2 {
+    font-size: 1.25rem;
+  }
+
   .header-image h1 {
-    font-size: 16px;
+    font-size: 1.25rem;
   }
-  
-  section,
-  .description,
-  .education,
-  .importance,
-  .tasks,
-  .cs-role,
-  .comparison,
-  .jobs,
-  .salary {
-    margin: 10px;
-  }
-  
+
   table {
     font-size: 12px;
   }
-  
+
   td, th {
     padding: 6px;
   }
 }
 
-/* Accessibility Enhancements */
+/* Print Styles
+   ========================================================================== */
+@media print {
+  nav,
+  .skip-to-content {
+    display: none;
+  }
+
+  body {
+    font-size: 12pt;
+    color: #000;
+  }
+
+  a {
+    text-decoration: underline;
+    color: #000;
+  }
+
+  .header-image h1 {
+    position: static;
+    transform: none;
+    background-color: transparent;
+    color: #000;
+    text-shadow: none;
+  }
+}
+
+/* Accessibility Improvements
+   ========================================================================== */
 :focus {
   outline: 2px solid #003366;
   outline-offset: 2px;
 }
 
-/* High Contrast Mode Support */
-@media (prefers-contrast: high) {
-  body {
-    background: white;
-    color: black;
-  }
-  
-  a {
-    text-decoration: underline;
-  }
+/* Ensure sufficient color contrast */
+.header-image {
+  background-color: #000;
 }
 
-/* Reduced Motion Support */
-@media (prefers-reduced-motion: reduce) {
-  * {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-  }
-}
-
-/* Print Styles */
-@media print {
-  nav {
-    display: none;
-  }
-  
-  .skip-to-content {
-    display: none;
-  }
-  
-  body {
-    font-size: 12pt;
-    line-height: 1.5;
-  }
-  
-  h1, h2 {
-    page-break-after: avoid;
-  }
-  
-  table {
-    page-break-inside: avoid;
-  }
+/* Screen reader only content */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
 }
