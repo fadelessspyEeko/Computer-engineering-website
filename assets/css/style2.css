@@ -23,7 +23,7 @@ html, body {
   height: 100%;
   width: 100%;
   font-family: Arial, Helvetica, sans-serif;
-  line-height: 1.6;
+  line-height: 2.6;
   color: var(--text);
   background-color: #ffffff;
   font-size: 16px;
@@ -150,7 +150,7 @@ nav ul li a[aria-current="page"] {
 /* Sections */
 section {
   margin: var(--gap);
-  line-height: 1.6;
+  line-height: 2.6;
 }
 
 section.description,
