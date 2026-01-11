@@ -1,0 +1,69 @@
+name: HTML Validation
+
+on:
+  push:
+    branches: [ main, copilot/improvesite-cleanup, improve/site-cleanup ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  validate-html:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+      
+      - name: Install HTMLHint
+        run: npm install -g htmlhint
+      
+      - name: Create HTMLHint config
+        run: |
+          cat > .htmlhintrc << 'EOF'
+          {
+            "tagname-lowercase": true,
+            "attr-lowercase": true,
+            "attr-value-double-quotes": true,
+            "doctype-first": true,
+            "tag-pair": true,
+            "spec-char-escape": true,
+            "id-unique": true,
+            "src-not-empty": true,
+            "attr-no-duplication": true,
+            "title-require": true,
+            "alt-require": true,
+            "doctype-html5": true,
+            "style-disabled": false,
+            "inline-style-disabled": false,
+            "inline-script-disabled": false,
+            "space-tab-mixed-disabled": "space",
+            "id-class-ad-disabled": true,
+            "attr-unsafe-chars": true
+          }
+          EOF
+      
+      - name: Validate HTML files
+        run: |
+          echo "Validating HTML files..."
+          htmlhint "*.html"
+          if [ $? -eq 0 ]; then
+            echo "✅ All HTML files passed validation!"
+          else
+            echo "❌ HTML validation failed. Please fix the errors above."
+            exit 1
+          fi
+      
+      - name: Validation Summary
+        if: always()
+        run: |
+          echo "======================================"
+          echo "HTML Validation Complete"
+          echo "======================================"
+          echo "Files validated:"
+          ls -1 *.html
+          echo "======================================"
