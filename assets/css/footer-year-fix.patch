@@ -1,0 +1,50 @@
+*** Begin Patch
+*** Update File: index.html
+@@
+-  <footer>
+-    <p class="site-credit">© 2024 Computer Engineering Field</p>
+-  </footer>
++  <footer>
++    <p class="site-credit">© 2026 Computer Engineering Field</p>
++  </footer>
+*** End Patch
+*** Begin Patch
+*** Update File: Website.html
+@@
+-  <footer>
+-    <p class="site-credit">© Computer Engineering Field</p>
+-  </footer>
++  <footer>
++    <p class="site-credit">© 2026 Computer Engineering Field. Published by: Terh Billgate</p>
++  </footer>
+*** End Patch
+*** Begin Patch
+*** Update File: education.html
+@@
+-  <footer>
+-    <p class="site-credit">© Computer Engineering Field</p>
+-  </footer>
++  <footer>
++    <p class="site-credit">© 2026 Computer Engineering Field</p>
++  </footer>
+*** End Patch
+*** Begin Patch
+*** Update File: jobs.html
+@@
+-  <footer>
+-    <p class="site-credit">© Computer Engineering Field</p>
+-  </footer>
++  <footer>
++    <p class="site-credit">© 2026 Computer Engineering Field</p>
++  </footer>
+*** End Patch
+*** Begin Patch
+*** Update File: salary.html
+@@
+-  <footer>
+-    <p class="site-credit">© Computer Engineering Field</p>
+-  </footer>
++  <footer>
++    <p class="site-credit">© 2026 Computer Engineering Field</p>
++  </footer>
+*** End Patch
