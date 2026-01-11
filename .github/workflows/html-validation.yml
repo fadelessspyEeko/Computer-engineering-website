@@ -1,0 +1,30 @@
+name: HTML Validation
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  validate-html:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+      
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18'
+        
+    - name: Install HTMLHint
+      run: npm install -g htmlhint
+      
+    - name: Run HTMLHint on all HTML files
+      run: htmlhint "*.html"
+      
+    - name: Validation Results
+      if: success()
+      run: echo "✅ HTML validation passed!"
