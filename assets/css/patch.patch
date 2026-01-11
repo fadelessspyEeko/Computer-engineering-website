@@ -1,0 +1,68 @@
+
+*** Begin Patch
+*** Update File: assets/css/style2.css
+@@
+ .header-image {
+   position: relative;
+   width: 100%;
+   text-align: center;
+   color: #fff;
+   overflow: hidden;
+   /* no top padding here so the hero image starts immediately under the nav */
+-}
++  /* make the hero fill the viewport below the sticky nav */
++  height: calc(100vh - var(--nav-height));
++  max-height: 80vh;
++  min-height: 320px;
++}
+ 
+-.header-image img,
+-.header-image picture img {
+-  width: 100%;
+-  height: auto;
+-  display: block;
+-}
++.header-image img,
++.header-image picture img {
++  width: 100%;
++  height: 100%;
++  display: block;
++  object-fit: cover; /* ensure the image covers the container */
++  object-position: center center;
++}
+*** Update File: assets/css/style2.css
+@@
+ .header-image {
+   position: relative;
+   width: 100%;
+   text-align: center;
+   color: #fff;
+   overflow: hidden;
+   /* fill the viewport area under the nav (no white gap) */
+   height: calc(100vh - var(--nav-height));
+   min-height: 320px;
+   max-height: 80vh;
+   margin: 0;
+   padding: 0;
++  /* pull the hero up so it reaches directly under the fixed nav */
++  margin-top: calc(-1 * var(--nav-height));
+ }
+@@
+-.header-image .title,
+-.header-image h1 {
+-  font-size: 1.25rem;
+-  padding: 8px 12px;
+-  top: 12px; /* small offset from the top edge of the hero */
+-  left: 50%;
+-  transform: translateX(-50%);
+-}
++.header-image .title,
++.header-image h1 {
++  /* place the title below the fixed nav so it isn't covered */
++  top: calc(var(--nav-height) + 12px);
++  left: 50%;
++  transform: translateX(-50%);
++  font-size: 1.25rem;
++  padding: 8px 12px;
++}
+*** End Patch
