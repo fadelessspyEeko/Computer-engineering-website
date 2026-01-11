@@ -1,0 +1,356 @@
+/* ==========================================================================
+   Computer Engineering Website - Consolidated Stylesheet
+   ========================================================================== */
+
+/* Reset and Base Styles
+   ========================================================================== */
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.6;
+  color: #333;
+}
+
+body {
+  font-size: 16px;
+}
+
+/* Skip to Content Link (Accessibility)
+   ========================================================================== */
+.skip-to-content {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: #003366;
+  color: white;
+  padding: 8px;
+  text-decoration: none;
+  z-index: 100;
+}
+
+.skip-to-content:focus {
+  top: 0;
+}
+
+/* Navigation
+   ========================================================================== */
+nav {
+  background-color: #003366;
+  padding: 10px;
+}
+
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+nav ul li {
+  margin-right: 20px;
+  margin-bottom: 5px;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 5px 10px;
+  display: block;
+}
+
+nav ul li a:hover,
+nav ul li a:focus {
+  text-decoration: underline;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 3px;
+}
+
+/* Header Image Section
+   ========================================================================== */
+.header-image {
+  position: relative;
+  width: 100%;
+  text-align: center;
+  color: white;
+  overflow: hidden;
+}
+
+.header-image img,
+.header-image picture {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.header-image h1 {
+  position: absolute;
+  top: 6%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: clamp(1.5rem, 5vw, 3rem);
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 10px 20px;
+  border-radius: 5px;
+  margin: 0;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.credit {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  font-size: 16px;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+.title {
+  margin: 0;
+  padding: 0;
+}
+
+/* Content Sections
+   ========================================================================== */
+section {
+  margin: 40px;
+  font-family: Arial, sans-serif;
+}
+
+section h2 {
+  color: #003366;
+  margin-top: 20px;
+  font-size: clamp(1.25rem, 3vw, 1.75rem);
+}
+
+section p {
+  font-size: 16px;
+  color: #333;
+  line-height: 1.6;
+  margin-bottom: 1em;
+}
+
+.description,
+.education,
+.importance,
+.tasks,
+.cs-role,
+.jobs,
+.salary,
+.comparison {
+  margin: 40px;
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+}
+
+/* Lists
+   ========================================================================== */
+ul {
+  list-style-type: square;
+  margin-left: 20px;
+  padding-left: 20px;
+}
+
+ul li {
+  margin-bottom: 10px;
+}
+
+/* Tables
+   ========================================================================== */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  overflow-x: auto;
+  display: block;
+}
+
+@media (min-width: 768px) {
+  table {
+    display: table;
+  }
+}
+
+th {
+  background-color: #f2f2f2;
+  text-align: left;
+  font-weight: bold;
+}
+
+td, th {
+  padding: 12px;
+  border: 1px solid #ccc;
+  text-align: left;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+tbody tr:hover {
+  background-color: #f0f0f0;
+}
+
+/* Typography
+   ========================================================================== */
+strong {
+  font-weight: bold;
+  color: #003366;
+}
+
+em {
+  font-style: italic;
+}
+
+a {
+  color: #003366;
+  transition: color 0.3s ease;
+}
+
+a:hover,
+a:focus {
+  color: #0055aa;
+  outline: 2px solid #0055aa;
+  outline-offset: 2px;
+}
+
+/* Responsive Images
+   ========================================================================== */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+picture img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Responsive Design
+   ========================================================================== */
+@media (max-width: 768px) {
+  section,
+  .description,
+  .education,
+  .importance,
+  .tasks,
+  .cs-role,
+  .jobs,
+  .salary,
+  .comparison {
+    margin: 20px;
+  }
+
+  nav ul {
+    flex-direction: column;
+  }
+
+  nav ul li {
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+
+  .header-image h1 {
+    font-size: 1.5rem;
+    padding: 5px 10px;
+  }
+
+  .credit {
+    font-size: 14px;
+    bottom: 10px;
+    right: 10px;
+  }
+
+  table {
+    font-size: 14px;
+  }
+
+  td, th {
+    padding: 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    font-size: 14px;
+  }
+
+  section h2 {
+    font-size: 1.25rem;
+  }
+
+  .header-image h1 {
+    font-size: 1.25rem;
+  }
+
+  table {
+    font-size: 12px;
+  }
+
+  td, th {
+    padding: 6px;
+  }
+}
+
+/* Print Styles
+   ========================================================================== */
+@media print {
+  nav,
+  .skip-to-content {
+    display: none;
+  }
+
+  body {
+    font-size: 12pt;
+    color: #000;
+  }
+
+  a {
+    text-decoration: underline;
+    color: #000;
+  }
+
+  .header-image h1 {
+    position: static;
+    transform: none;
+    background-color: transparent;
+    color: #000;
+    text-shadow: none;
+  }
+}
+
+/* Accessibility Improvements
+   ========================================================================== */
+:focus {
+  outline: 2px solid #003366;
+  outline-offset: 2px;
+}
+
+/* Ensure sufficient color contrast */
+.header-image {
+  background-color: #000;
+}
+
+/* Screen reader only content */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
