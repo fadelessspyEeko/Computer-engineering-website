@@ -150,4 +150,4 @@ Contributions, issues, and feature requests are welcome!
 
 ---
 
-*Last updated: 2024*
+*Last updated: 2026*
