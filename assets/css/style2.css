@@ -1,8 +1,9 @@
 /* ==========================================================================
-   Computer Engineering Website - Consolidated Stylesheet
-   ==========================================================================
-   Merged and cleaned: consistent variables, sticky nav, accessible skip link,
-   responsive hero/title, and mobile nav adjustments.
+   Computer Engineering Website - Consolidated Stylesheet (updated)
+   - Fixed nav + reserved body top space
+   - Hero image fills to top and is pulled up so it reaches the viewport edge
+   - Title remains visible below the nav
+   - Optional CSS fallback to show © 2026 (temporary; prefer editing HTML)
    ========================================================================== */
 
 /* Root variables */
@@ -11,7 +12,7 @@
   --muted: #f2f2f2;
   --text: #222;
   --gap: 40px;
-  --nav-height: 64px; /* consistent nav height used across layout */
+  --nav-height: 64px;
 }
 
 /* Base Reset & Typography */
@@ -29,48 +30,34 @@ html, body {
   font-size: 16px;
 }
 
-/* Accessibility: Skip link (supporting both name variants) */
-.skip-link,
-.skip-to-content {
-  position: absolute;
-  top: -40px;
-  left: 0;
-  background: var(--brand);
-  color: #fff;
-  padding: 8px;
-  text-decoration: none;
-  z-index: 1000;
-}
-.skip-link:focus,
-.skip-to-content:focus {
-  top: 0;
-  outline: 3px solid rgba(255,255,255,0.9);
-  outline-offset: 3px;
-  border-radius: 4px;
+/* Reserve vertical space so a fixed nav doesn't overlap content */
+body {
+  padding-top: var(--nav-height);
 }
 
-/* Navigation - sticky, accessible */
+/* Navigation (fixed) */
 nav {
   background-color: var(--brand);
   padding: 0 16px;
-  position: sticky;
+  position: fixed;
   top: 0;
-  z-index: 1100;
+  left: 0;
+  right: 0;
+  z-index: 1200;
   height: var(--nav-height);
   display: flex;
   align-items: center;
 }
 
+/* Nav list */
 nav ul {
   list-style: none;
   margin: 0;
   padding: 0;
   display: flex;
-  flex-wrap: wrap;
   gap: 12px;
 }
 nav ul li { margin: 0; }
-
 nav ul li a {
   color: #fff;
   text-decoration: none;
@@ -80,16 +67,12 @@ nav ul li a {
   transition: background-color 0.2s ease;
   border-radius: 6px;
 }
-
-/* Hover & focus */
 nav ul li a:hover,
 nav ul li a:focus {
   background-color: rgba(255,255,255,0.08);
   outline: 3px solid rgba(255,255,255,0.9);
   outline-offset: 3px;
 }
-
-/* Active/current page */
 nav ul li a.active,
 nav ul li a[aria-current="page"] {
   background: rgba(255,255,255,0.06);
@@ -98,40 +81,52 @@ nav ul li a[aria-current="page"] {
 }
 
 /* Header / hero image area */
+/* The hero is pulled up so it reaches directly under the viewport top (behind the fixed nav) */
 .header-image {
   position: relative;
   width: 100%;
   text-align: center;
   color: #fff;
   overflow: hidden;
-  /* make room for sticky nav + extra spacing */
-  padding-top: calc(var(--nav-height) + 16px);
+
+  /* fill the viewport area under the nav (no visible white gap) */
+  height: calc(100vh - var(--nav-height));
+  min-height: 320px;
+  max-height: 80vh;
+
+  margin: 0;
+  padding: 0;
+
+  /* move the hero up into the reserved nav space so the image touches the top */
+  margin-top: calc(-1 * var(--nav-height));
 }
 
-/* hero image responsiveness */
+/* Make the image cover the hero area without distortion */
 .header-image img,
 .header-image picture img {
   width: 100%;
-  height: auto;
+  height: 100%;
   display: block;
+  object-fit: cover;
+  object-position: center center;
 }
 
-/* Title (works with .title or h1 inside .header-image) */
+/* Title overlay — positioned below the fixed nav so it is visible */
 .header-image .title,
 .header-image h1,
 .title {
   margin: 0;
   position: absolute;
+  top: calc(var(--nav-height) + 12px); /* ensures title is below the fixed nav */
   left: 50%;
   transform: translateX(-50%);
-  /* keep title below the nav using the nav variable */
-  top: calc(var(--nav-height) + 12px);
   color: #fff;
   background: rgba(0,0,0,0.35);
   padding: 10px 16px;
   border-radius: 6px;
   font-size: clamp(1.25rem, 3.5vw, 2.5rem);
   text-shadow: 2px 2px 4px rgba(0,0,0,0.75);
+  z-index: 1100;
 }
 
 /* Credit badge in hero */
@@ -146,12 +141,11 @@ nav ul li a[aria-current="page"] {
   border-radius: 6px;
 }
 
-/* Sections */
+/* General sections */
 section {
   margin: var(--gap);
   line-height: 1.6;
 }
-
 section.description,
 section.education,
 section.importance,
@@ -165,51 +159,29 @@ section.salary {
   border-radius: 8px;
 }
 
-/* Headings */
+/* Headings and text */
 h1 { color: var(--brand); font-size: 2em; margin-bottom: 20px; }
 h2 { color: var(--brand); font-size: 1.5em; margin-top: 30px; margin-bottom: 15px; }
 h3 { color: #004080; font-size: 1.2em; }
-
-p {
-  font-size: 16px;
-  color: #333;
-  margin-bottom: 15px;
-}
+p { font-size: 16px; color: #333; margin-bottom: 15px; }
 
 /* Links */
 a { color: #003366; transition: color 0.2s ease; text-decoration: none; }
 a:hover, a:focus { color: #0055aa; text-decoration: underline; outline: 2px solid #0055aa; outline-offset: 2px; }
-
-/* Lists */
-ul { list-style-type: square; margin-left: 20px; padding-left: 20px; }
-ul li { margin-bottom: 10px; }
 
 /* Tables */
 table {
   width: 100%;
   border-collapse: collapse;
   margin: 20px 0;
-  overflow-x: auto;
-  display: block;
 }
 @media (min-width: 768px) { table { display: table; } }
-
-th, td {
-  padding: 12px;
-  border: 1px solid #ccc;
-  text-align: left;
-}
+th, td { padding: 12px; border: 1px solid #ccc; text-align: left; }
 thead { background-color: var(--brand); color: white; }
 tbody tr:nth-child(even) { background-color: #f9f9f9; }
 tbody tr:hover { background-color: #f0f0f0; }
 
-/* Emphasis */
-strong { font-weight: bold; color: var(--brand); }
-em { font-style: italic; }
-
-/* Main & Footer */
-main { min-height: 50vh; }
-
+/* Footer */
 footer {
   background-color: var(--brand);
   color: #fff;
@@ -218,14 +190,24 @@ footer {
   margin-top: 40px;
 }
 footer p { margin: 5px 0; }
-footer a { color: #88ccff; }
-footer a:hover { color: #fff; }
 
-/* Images */
-img { max-width: 100%; height: auto; }
-
-/* Utilities */
-.text-center { text-align: center; }
+/* Optional: temporary CSS fallback to force footer text to © 2026
+   NOTE: This is a fallback only if you cannot edit HTML files right now.
+   If possible, update the HTML footers to the correct year instead. */
+.site-credit {
+  /* hide original text but keep element for semantics */
+  color: transparent;
+  position: relative;
+}
+.site-credit::after {
+  content: "© 2026 Computer Engineering Field";
+  color: #fff;
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform: translateX(-50%);
+  white-space: nowrap;
+}
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
@@ -241,6 +223,7 @@ img { max-width: 100%; height: auto; }
 @media (max-width: 480px) {
   :root { --nav-height: 56px; }
   body { font-size: 14px; }
+  .header-image { height: calc(70vh - var(--nav-height)); }
   .header-image .title,
   .header-image h1 { font-size: 1rem; top: calc(var(--nav-height) + 8px); padding: 6px 10px; }
   section { margin: 10px; padding: 15px; }
