@@ -1,158 +1,153 @@
 # Computer Engineering Website
 
-A comprehensive informational website about Computer Engineering, covering education requirements, career paths, job opportunities, and salary insights.
+A comprehensive educational website about the Computer Engineering field, covering education requirements, career opportunities, and salary insights.
 
-## 🌟 Features
+## 📘 About This Project
 
-- **Responsive Design**: Optimized for desktop, tablet, and mobile devices
-- **Accessible**: WCAG 2.1 compliant with skip links and proper semantic HTML
-- **SEO Optimized**: Includes meta tags, Open Graph tags, sitemap, and robots.txt
-- **Image Optimization**: WebP images with JPG fallbacks for better performance
-- **Clean Structure**: Consolidated CSS and proper HTML5 semantic elements
+This website provides detailed information about:
+- Computer Engineering field overview
+- Education requirements and pathways
+- Career opportunities and job roles
+- Salary insights and compensation data
 
-## 📄 Pages
+## 🚀 Features
 
-1. **index.html** - Landing page with hero image
-2. **Website.html** - Main homepage with site overview
-3. **education.html** - Information about Computer Engineering education
-4. **jobs.html** - Career opportunities and job roles
-5. **salary.html** - Salary insights and compensation data
-
-## 🚀 Deployment to GitHub Pages
-
-### Prerequisites
-- GitHub account
-- Repository with GitHub Pages enabled
-
-### Steps to Deploy
-
-1. **Enable GitHub Pages**:
-   - Go to your repository settings
-   - Navigate to "Pages" section
-   - Under "Source", select the branch you want to deploy (usually `main`)
-   - Select the root folder `/`
-   - Click "Save"
-
-2. **Verify Deployment**:
-   - Wait a few minutes for the build to complete
-   - Your site will be available at: `https://fadelessspyeeko.github.io/Computer-engineering-website/`
-
-3. **Custom Domain (Optional)**:
-   - Add a `CNAME` file with your custom domain
-   - Configure DNS settings with your domain provider
-   - Update the domain in repository settings
-
-## 🛠️ Local Development
-
-### Running Locally
-
-You can test the website locally using any static file server:
-
-**Option 1: Python HTTP Server**
-```bash
-python3 -m http.server 8000
-```
-Then open http://localhost:8000 in your browser.
-
-**Option 2: Node.js HTTP Server**
-```bash
-npx http-server -p 8000
-```
-
-**Option 3: VS Code Live Server**
-- Install the "Live Server" extension
-- Right-click on `index.html` and select "Open with Live Server"
-
-### Testing Navigation
-
-1. Open `index.html` or `Website.html` in your browser
-2. Test the skip-to-content link (press Tab on page load)
-3. Navigate through all pages using the navigation menu
-4. Verify images load correctly (WebP in modern browsers, JPG fallback in others)
-5. Test responsive design by resizing the browser window
+- **Responsive Design**: Optimized for all device sizes (mobile, tablet, desktop)
+- **Accessibility**: Includes skip-to-content links and proper ARIA labels
+- **SEO Optimized**: Meta tags, Open Graph, and Twitter Card support
+- **Modern Web Standards**: Valid HTML5, consolidated CSS, WebP image support
+- **Performance**: Optimized images with WebP format and fallbacks
 
 ## 📁 Project Structure
 
 ```
-Computer-engineering-website/
+.
+├── index.html              # Home/landing page
+├── Website.html            # Main overview page
+├── education.html          # Education requirements page
+├── jobs.html              # Jobs and career page
+├── salary.html            # Salary insights page
 ├── assets/
 │   ├── css/
-│   │   └── style2.css          # Consolidated stylesheet
-│   ├── images/                 # Image assets
+│   │   └── style2.css     # Consolidated stylesheet
+│   ├── images/            # Image assets (JPG and WebP)
 │   │   ├── Csc.jpg / Csc.webp
 │   │   ├── c1.jpg / c1.webp
 │   │   ├── c2.jpg / c2.webp
 │   │   └── Terh-logo.jpg / Terh-logo.webp
-│   └── favicon.ico             # Site favicon
-├── .github/
-│   └── workflows/
-│       └── html-validation.yml # CI workflow for HTML validation
-├── index.html                  # Landing page
-├── Website.html                # Main homepage
-├── education.html              # Education information
-├── jobs.html                   # Job opportunities
-├── salary.html                 # Salary insights
-├── robots.txt                  # Search engine crawler instructions
-├── sitemap.xml                 # Site structure for search engines
-└── README.md                   # This file
+│   └── favicon.ico        # Site favicon
+├── robots.txt             # Search engine crawler instructions
+├── sitemap.xml            # Site structure for search engines
+└── README.md              # This file
 ```
 
-## 🔄 Recent Changes
+## 🌐 GitHub Pages Deployment
 
-### Site Improvements (January 2026)
+This site is deployed using GitHub Pages. To deploy or update:
 
-- ✅ **HTML Structure Normalized**: All pages now have proper DOCTYPE, html, head, and body tags
-- ✅ **CSS Consolidated**: Moved all inline styles to `assets/css/style2.css`
-- ✅ **Assets Reorganized**: Images moved to `assets/images/` directory
-- ✅ **Image Optimization**: Added WebP versions of all images with fallbacks
-- ✅ **Lazy Loading**: Images now use `loading="lazy"` attribute
-- ✅ **Accessibility**: Added skip links, proper ARIA labels, and semantic HTML
-- ✅ **SEO**: Added meta tags, Open Graph tags, sitemap.xml, and robots.txt
-- ✅ **Responsive Design**: Mobile-friendly with responsive CSS rules
-- ✅ **CI/CD**: Added GitHub Actions workflow for HTML validation
+### Automatic Deployment
 
-## 🧪 Testing & Validation
+The site is automatically deployed from the `main` branch when changes are pushed.
+
+1. Make your changes locally
+2. Commit and push to the `main` branch:
+   ```bash
+   git add .
+   git commit -m "Your commit message"
+   git push origin main
+   ```
+3. GitHub Pages will automatically rebuild and deploy your site
+4. Visit your site at: `https://fadelessspyeeko.github.io/Computer-engineering-website/`
+
+### Manual GitHub Pages Setup
+
+If GitHub Pages is not yet configured:
+
+1. Go to your repository on GitHub
+2. Click **Settings** → **Pages**
+3. Under "Source", select the `main` branch
+4. Click **Save**
+5. Your site will be published at `https://fadelessspyeeko.github.io/Computer-engineering-website/`
+
+## 💻 Local Development
+
+To run the site locally:
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/fadelessspyEeko/Computer-engineering-website.git
+   cd Computer-engineering-website
+   ```
+
+2. Start a local web server:
+   ```bash
+   python -m http.server 8000
+   ```
+   Or use any other local server (Node.js `http-server`, PHP built-in server, etc.)
+
+3. Open your browser and navigate to:
+   ```
+   http://localhost:8000
+   ```
+
+## ✅ Testing
+
+### Manual Testing
+
+1. **Navigation**: Test all navigation links work correctly
+2. **Accessibility**: 
+   - Press Tab to test skip-to-content link
+   - Test keyboard navigation throughout the site
+   - Use a screen reader to verify content is accessible
+3. **Images**: Verify all images load correctly with WebP/JPG fallback
+4. **Responsive Design**: Test on different screen sizes
 
 ### HTML Validation
-The repository includes a GitHub Actions workflow that automatically validates HTML on every push and pull request:
-- Location: `.github/workflows/html-validation.yml`
-- Runs HTMLHint validation on all HTML files
-- Check the "Actions" tab in GitHub to see validation results
 
-### Manual Testing Checklist
-- [ ] All pages load without errors
-- [ ] Navigation works across all pages
-- [ ] Images display correctly (WebP or JPG)
-- [ ] Skip-to-content link works (Tab key on page load)
-- [ ] Responsive design works on mobile/tablet/desktop
-- [ ] All links are functional
-- [ ] Tables display properly
-- [ ] Footer appears on all pages
+The project includes automated HTML validation via GitHub Actions:
+- Runs on every push and pull request to `main`
+- Uses [HTMLHint](https://htmlhint.com/) for validation
+- Check the Actions tab for validation results
 
-## 🤝 Contributing
+To run HTMLHint locally:
+```bash
+npm install -g htmlhint
+htmlhint *.html
+```
 
-To contribute to this project:
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Make your changes
-4. Test thoroughly (run HTML validation)
-5. Commit your changes (`git commit -m 'Add amazing feature'`)
-6. Push to the branch (`git push origin feature/amazing-feature`)
-7. Open a Pull Request
+## 🛠️ Technologies Used
 
-## 📝 License
+- **HTML5**: Semantic markup
+- **CSS3**: Modern styling with Flexbox and responsive design
+- **WebP**: Modern image format for better performance
+- **GitHub Pages**: Free static site hosting
+- **GitHub Actions**: Automated HTML validation
 
-This project is open source and available for educational purposes.
+## 📝 TODO
+
+- [ ] Convert placeholder WebP files to actual WebP images (requires `cwebp` tool)
+- [ ] Add actual favicon.ico (currently placeholder)
+- [ ] Consider adding JavaScript for enhanced interactivity
+- [ ] Add more content pages as needed
 
 ## 👤 Author
 
 Published by: Terh Billgate
 
-## 🔗 Links
+## 📄 License
 
-- **Live Site**: https://fadelessspyeeko.github.io/Computer-engineering-website/
-- **Repository**: https://github.com/fadelessspyEeko/Computer-engineering-website
+This project is available for educational purposes.
+
+## 🤝 Contributing
+
+Contributions, issues, and feature requests are welcome!
+
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
 
 ---
 
-*Last updated: January 11, 2026*
+*Last updated: 2024*
